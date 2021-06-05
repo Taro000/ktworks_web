@@ -1,0 +1,422 @@
+body {
+  background-color: rgb(30, 30, 30);
+  font-family: serif;
+  color: #fff;
+  margin: 0;
+  font-family: "Noto Sans TC", sans-serif;
+  transition: all 1s;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* body background-color 変化 関係 */
+.black-backcolor {
+  background-color: rgb(30, 30, 30);
+}
+
+.profile-backcolor {
+  background-color: rgb(150, 124, 124);
+}
+
+.contact-backcolor {
+  background-color: rgb(65, 111, 104);
+}
+
+/* SVG CSS */
+#mask_line {
+  stroke-dasharray: 2600px;
+  animation: h-written 4s infinite;
+  stroke: #fff;
+}
+
+@keyframes h-written {
+  0% {
+    stroke-dashoffset: 2600px;
+  }
+  100% {
+    stroke-dashoffset: 0px;
+  }
+}
+
+#text {
+  mask: url(#mask_ani);
+}
+
+/* Loading背景画面設定　*/
+#splash {
+  /*fixedで全面に固定*/
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: rgb(65, 111, 104);
+  text-align: center;
+  color: #fff;
+}
+
+/* Loading画像中央配置　*/
+#splash_logo {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Loading アイコンの大きさ設定　*/
+#splash_logo svg {
+  width: 800px;
+}
+
+/* Header */
+header {
+  z-index: 1;
+  position: fixed;
+  top: 0px;
+  height: 8vh;
+  width: 100%;
+}
+
+header ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  width: 95%;
+}
+
+header li {
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+header a {
+  color: #fff;
+}
+
+header a:hover {
+  color: rgb(200, 200, 200);
+}
+
+/* main */
+
+.left-container {
+  height: 92vh;
+  width: 95%;
+}
+
+.right-container {
+  right: 0;
+  height: 92vh;
+  width: 95%;
+}
+
+.side-title {
+  height: 92vh;
+  width: 5%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.side-title h1 {
+  font-size: 4vh;
+  letter-spacing: 0.2em;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.side-title h1::before,
+.side-title h1::after {
+  content: "";
+  width: 0;
+  height: 1px;
+  flex-grow: 1;
+  background-color: black;
+  transition: all 1s;
+}
+
+.side-title h1::before {
+  margin-right: 1rem;
+}
+
+.side-title h1::after {
+  margin-left: 1rem;
+}
+
+/* SideTitle Fade-In　関連 */
+.side-title span {
+  opacity: 0;
+}
+
+.side-title .active-title::before,
+.side-title .active-title::after {
+  width: 30vh;
+}
+
+/* Top */
+#top {
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+#top img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#top .title-text {
+  transform: rotate(90deg);
+}
+
+#top .side-title h1::before,
+#top .side-title h1::after {
+  background-color: rgb(150, 124, 124);
+}
+
+/* Profile */
+#profile {
+  height: 100vh;
+  background-color: rgb(150, 124, 124);
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+#profile .title-text {
+  transform: rotate(270deg);
+}
+
+#profile .right-container {
+  position: relative;
+}
+
+#profile img {
+  display: block;
+  width: 60%;
+  border-radius: 5px;
+  margin-left: auto;
+}
+
+#profile .contents-text {
+  position: absolute;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+  font-family: "Noto Serif JP", serif;
+}
+
+#profile .contents-text h1 {
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  max-width: 40%;
+  line-height: 1;
+}
+
+#profile .contents-text p {
+  font-size: 13px;
+  max-width: 35%;
+  margin-top: 30px;
+  line-height: 1.6;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+/* Profile Fade-In 関連 */
+.fade-in {
+  opacity: 0;
+  transition-duration: 2.5s;
+  transition-property: opacity, transform;
+}
+
+.fade-in-up {
+  transform: translate(0, 100px);
+}
+
+.fade-in-left {
+  transform: translate(-100px, 0);
+}
+
+.fade-in-right {
+  transform: translate(100px, 0);
+}
+
+.scroll-in {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Portfolio */
+#portfolio {
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+}
+#portfolio .title-text {
+  transform: rotate(90deg);
+}
+
+#portfolio .side-title h1::before,
+#portfolio .side-title h1::after {
+  background-color: rgb(65, 111, 104);
+}
+
+#portfolio .left-container {
+  position: relative;
+}
+
+.active-img {
+  position: absolute;
+  top: 0;
+  width: 85%;
+  height: 84vh;
+}
+
+.active-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-selecter {
+  position: absolute;
+  top: 0;
+  left: 85%;
+  width: 15%;
+  height: 84vh;
+}
+
+.img-selecter ul {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.img-selecter li {
+  height: 18%;
+  width: 90%;
+}
+
+.img-selecter li:not(:last-of-type) {
+  margin-bottom: 10px;
+}
+
+.img-selecter .selecter-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+.img-selecter li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition-duration: 0.3s;
+}
+
+.img-selecter .selecter-image:hover img {
+  opacity: 0.6;
+  transition-duration: 0.3s;
+}
+
+/* Contact */
+#contact {
+  height: 100vh;
+  background-color: rgb(65, 111, 104);
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+#contact form,
+#contact ul {
+  width: 100%;
+  height: 92vh;
+}
+
+#contact li {
+  position: relative;
+  margin-top: 15px;
+}
+
+#contact input {
+  color: #fff;
+  font-family: inherit;
+}
+
+/* Submitボタン以外 */
+#contact input:not(.submit-button input),
+#contact textarea {
+  display: block;
+  margin-left: auto;
+  width: 75%;
+  height: 45px;
+  background-color: rgb(30, 30, 30);
+  border: none;
+}
+
+#contact textarea {
+  width: 75%;
+  height: 40vh;
+  background-color: rgb(30, 30, 30);
+  border: none;
+}
+
+/* Submitボタン */
+.submit-button {
+  display: block;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  position: relative;
+  width: 25%;
+  height: 45px;
+  border: none;
+  outline: 0;
+}
+
+.submit-button input {
+  width: 100%;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  background-color: transparent;
+  border: none;
+}
+
+.submit-button::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  bottom: 0;
+  width: 0;
+  border-bottom: solid 4px black;
+  transition: all 1s ease;
+}
+
+.submit-button:hover::after {
+  width: 100%;
+}
+
+#contact form h3 {
+  display: inline;
+  position: absolute;
+  left: 10%;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+#contact .title-text {
+  transform: rotate(270deg);
+}
